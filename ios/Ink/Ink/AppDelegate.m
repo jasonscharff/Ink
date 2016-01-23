@@ -7,9 +7,15 @@
 //
 
 #import "AppDelegate.h"
+
+#import "BalanceViewController.h"
+#import "HistoryViewController.h"
+#import "LoginStoreController.h"
 #import "LoginViewController.h"
 
 @interface AppDelegate ()
+
+@property (nonatomic, strong) UINavigationController *navigationController;
 
 @end
 
@@ -17,15 +23,32 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  
   self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-  UINavigationController *navigation = [[UINavigationController alloc]init];
-  UIViewController *firstVC = [[LoginViewController alloc]init];
-  [navigation pushViewController:firstVC animated:NO];
-  self.window.rootViewController = navigation;
+  self.navigationController = [[UINavigationController alloc]init];
+  self.navigationController.navigationBar.translucent = NO;
+  if([[LoginStoreController sharedLoginStoreController]isLoggedIn]) {
+    [self createTabBarController];
+  }
+  else {
+    [self.navigationController pushViewController:[[LoginViewController alloc]init] animated:NO];
+  }
+  self.window.rootViewController = self.navigationController;
   [self.window makeKeyAndVisible];
   
   // Override point for customization after application launch.
   return YES;
+}
+
+-(void)createTabBarController {
+  UITabBarController *tabBarController = [[UITabBarController alloc]init];
+  tabBarController.tabBar.translucent = NO;
+  UIViewController *vc1 = [[BalanceViewController alloc]init];
+  UITabBarItem *item1 = [[UITabBarItem alloc]initWithTitle:@"" image:nil selectedImage:nil];
+  UIViewController *vc2 = [[HistoryViewController alloc]init];
+  tabBarController.viewControllers = @[vc1, vc2];
+  vc1.tabBarItem = item1;
+  [self.navigationController setViewControllers:@[tabBarController]];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

@@ -7,14 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA203E057630D3898089DE6C /* libPods-Ink.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C686BBB18FA9BBB5273C5438 /* libPods-Ink.a */; };
 		BEE0BC811C5334E3000C8A27 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE0BC801C5334E3000C8A27 /* main.m */; };
 		BEE0BC841C5334E3000C8A27 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE0BC831C5334E3000C8A27 /* AppDelegate.m */; };
 		BEE0BC8C1C5334E3000C8A27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEE0BC8B1C5334E3000C8A27 /* Assets.xcassets */; };
 		BEE0BC8F1C5334E3000C8A27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEE0BC8D1C5334E3000C8A27 /* LaunchScreen.storyboard */; };
 		BEE0BC981C5335BE000C8A27 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE0BC971C5335BE000C8A27 /* LoginViewController.m */; };
+		BEE0BC9D1C5339DC000C8A27 /* LoginStoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE0BC9C1C5339DC000C8A27 /* LoginStoreController.m */; };
+		BEE0BCA11C534BC3000C8A27 /* BalanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE0BCA01C534BC3000C8A27 /* BalanceViewController.m */; };
+		BEE0BCA41C534BD0000C8A27 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE0BCA31C534BD0000C8A27 /* HistoryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		05A63E0129F992D54DF9BACD /* Pods-Ink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ink.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ink/Pods-Ink.release.xcconfig"; sourceTree = "<group>"; };
+		092805287C0BE4B6F9C98B3D /* Pods-Ink.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ink.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ink/Pods-Ink.debug.xcconfig"; sourceTree = "<group>"; };
 		BEE0BC7C1C5334E3000C8A27 /* Ink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEE0BC801C5334E3000C8A27 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BEE0BC821C5334E3000C8A27 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -24,6 +30,13 @@
 		BEE0BC901C5334E3000C8A27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEE0BC961C5335BE000C8A27 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		BEE0BC971C5335BE000C8A27 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		BEE0BC9B1C5339DC000C8A27 /* LoginStoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginStoreController.h; sourceTree = "<group>"; };
+		BEE0BC9C1C5339DC000C8A27 /* LoginStoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginStoreController.m; sourceTree = "<group>"; };
+		BEE0BC9F1C534BC3000C8A27 /* BalanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalanceViewController.h; sourceTree = "<group>"; };
+		BEE0BCA01C534BC3000C8A27 /* BalanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BalanceViewController.m; sourceTree = "<group>"; };
+		BEE0BCA21C534BD0000C8A27 /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
+		BEE0BCA31C534BD0000C8A27 /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
+		C686BBB18FA9BBB5273C5438 /* libPods-Ink.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Ink.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +44,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA203E057630D3898089DE6C /* libPods-Ink.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B9B008022F875D0D58026920 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				092805287C0BE4B6F9C98B3D /* Pods-Ink.debug.xcconfig */,
+				05A63E0129F992D54DF9BACD /* Pods-Ink.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BBD945A473932D58A9CE7358 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C686BBB18FA9BBB5273C5438 /* libPods-Ink.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BEE0BC731C5334E3000C8A27 = {
 			isa = PBXGroup;
 			children = (
 				BEE0BC7E1C5334E3000C8A27 /* Ink */,
 				BEE0BC7D1C5334E3000C8A27 /* Products */,
+				B9B008022F875D0D58026920 /* Pods */,
+				BBD945A473932D58A9CE7358 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,8 +89,8 @@
 		BEE0BC7E1C5334E3000C8A27 /* Ink */ = {
 			isa = PBXGroup;
 			children = (
-				BEE0BC961C5335BE000C8A27 /* LoginViewController.h */,
-				BEE0BC971C5335BE000C8A27 /* LoginViewController.m */,
+				BEE0BC9E1C5339E1000C8A27 /* StoreController */,
+				BEE0BC9A1C53390B000C8A27 /* ViewController */,
 				BEE0BC821C5334E3000C8A27 /* AppDelegate.h */,
 				BEE0BC831C5334E3000C8A27 /* AppDelegate.m */,
 				BEE0BC8B1C5334E3000C8A27 /* Assets.xcassets */,
@@ -76,6 +109,28 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		BEE0BC9A1C53390B000C8A27 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BEE0BC9F1C534BC3000C8A27 /* BalanceViewController.h */,
+				BEE0BCA01C534BC3000C8A27 /* BalanceViewController.m */,
+				BEE0BCA21C534BD0000C8A27 /* HistoryViewController.h */,
+				BEE0BCA31C534BD0000C8A27 /* HistoryViewController.m */,
+				BEE0BC961C5335BE000C8A27 /* LoginViewController.h */,
+				BEE0BC971C5335BE000C8A27 /* LoginViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		BEE0BC9E1C5339E1000C8A27 /* StoreController */ = {
+			isa = PBXGroup;
+			children = (
+				BEE0BC9B1C5339DC000C8A27 /* LoginStoreController.h */,
+				BEE0BC9C1C5339DC000C8A27 /* LoginStoreController.m */,
+			);
+			name = StoreController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -83,9 +138,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BEE0BC931C5334E3000C8A27 /* Build configuration list for PBXNativeTarget "Ink" */;
 			buildPhases = (
+				29A0A286F58F3ACD5EE61C7A /* Check Pods Manifest.lock */,
 				BEE0BC781C5334E3000C8A27 /* Sources */,
 				BEE0BC791C5334E3000C8A27 /* Frameworks */,
 				BEE0BC7A1C5334E3000C8A27 /* Resources */,
+				FE751C055FD96B438EB2EE55 /* Embed Pods Frameworks */,
+				1840F15BCD96B1BC2335D32B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -140,14 +198,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1840F15BCD96B1BC2335D32B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Ink/Pods-Ink-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		29A0A286F58F3ACD5EE61C7A /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FE751C055FD96B438EB2EE55 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Ink/Pods-Ink-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BEE0BC781C5334E3000C8A27 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				BEE0BC841C5334E3000C8A27 /* AppDelegate.m in Sources */,
+				BEE0BCA11C534BC3000C8A27 /* BalanceViewController.m in Sources */,
 				BEE0BC811C5334E3000C8A27 /* main.m in Sources */,
 				BEE0BC981C5335BE000C8A27 /* LoginViewController.m in Sources */,
+				BEE0BC9D1C5339DC000C8A27 /* LoginStoreController.m in Sources */,
+				BEE0BCA41C534BD0000C8A27 /* HistoryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +356,7 @@
 		};
 		BEE0BC941C5334E3000C8A27 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 092805287C0BE4B6F9C98B3D /* Pods-Ink.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Ink/Info.plist;
@@ -259,6 +369,7 @@
 		};
 		BEE0BC951C5334E3000C8A27 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05A63E0129F992D54DF9BACD /* Pods-Ink.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Ink/Info.plist;
@@ -288,6 +399,7 @@
 				BEE0BC951C5334E3000C8A27 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
