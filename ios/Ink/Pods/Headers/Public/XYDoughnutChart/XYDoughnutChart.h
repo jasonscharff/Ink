@@ -1,0 +1,1 @@
+../../../XYDoughnutChart/Source/Classes/XYDoughnutChart.h

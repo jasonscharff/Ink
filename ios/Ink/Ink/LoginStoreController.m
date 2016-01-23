@@ -8,6 +8,11 @@
 
 #import "LoginStoreController.h"
 
+#import "AFHTTPSessionManager.h"
+#import "JNKeychain.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+
 @implementation LoginStoreController
 
 + (instancetype)sharedLoginStoreController {
@@ -21,7 +26,35 @@
 }
 
 -(BOOL)isLoggedIn {
-  return YES;
+  if([FBSDKAccessToken currentAccessToken].tokenString && [JNKeychain loadValueForKey:@"auth_token"]) {
+    return YES;
+  }
+  else {
+    return NO;
+  }
+}
+
+-(void)sendLoginToken:(NSString *)token {
+  AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+  NSDictionary *dictionary = @{@"fbToken" : token};
+  [manager POST:@"http://api.getink.co/user/login" parameters:dictionary progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [JNKeychain saveValue:responseObject[@"auth_token"] forKey:@"auth_token"];
+  } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    NSLog(@"An error has occured. %@", error);
+  }];
+}
+
+-(void)sendPlaidToken: (NSString *)token {
+  AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+  manager.responseSerializer = [AFJSONResponseSerializer serializer];
+  manager.requestSerializer = [AFJSONRequestSerializer serializer];
+  [manager.requestSerializer setValue:[JNKeychain loadValueForKey:@"auth_token"] forHTTPHeaderField:@"x-access-token"];
+  NSDictionary *dictionary = @{@"PLToken" : token};
+  [manager POST:@"http://api.getink.co/user/link" parameters:dictionary progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    NSLog(@"success = %@", responseObject);
+  } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    NSLog(@"error = %@", error);
+  }];
 }
 
 @end

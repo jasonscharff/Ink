@@ -1,0 +1,6 @@
+
+*.plist
+
+ios/Ink/Ink/Info.plist
+
+ios/Ink/Ink/index.html

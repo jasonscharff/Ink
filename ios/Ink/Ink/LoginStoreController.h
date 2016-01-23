@@ -11,6 +11,8 @@
 @interface LoginStoreController : NSObject
 
 + (instancetype)sharedLoginStoreController;
--(BOOL)isLoggedIn;
+- (BOOL)isLoggedIn;
+- (void)sendLoginToken: (NSString *)token;
+- (void)sendPlaidToken: (NSString *)token;
 
 @end

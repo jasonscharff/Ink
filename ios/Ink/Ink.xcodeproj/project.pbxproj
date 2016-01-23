@@ -8,6 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		AA203E057630D3898089DE6C /* libPods-Ink.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C686BBB18FA9BBB5273C5438 /* libPods-Ink.a */; };
+		BE4B038D1C53C35700077459 /* Balance.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4B038C1C53C35700077459 /* Balance.m */; };
+		BE4B03921C53F50200077459 /* HistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4B03911C53F50200077459 /* HistoryTableViewCell.m */; };
+		BE4B03951C5412A900077459 /* Transaction.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4B03941C5412A900077459 /* Transaction.m */; };
+		BE4B03981C54282500077459 /* HistoryStoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4B03971C54282500077459 /* HistoryStoreController.m */; };
+		BED03B591C535AE700388E52 /* AutolayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BED03B561C535AE700388E52 /* AutolayoutHelper.m */; };
+		BED03B5A1C535AE700388E52 /* LinearLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BED03B581C535AE700388E52 /* LinearLayout.m */; };
+		BED03B5E1C536F3F00388E52 /* BalanceStoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = BED03B5D1C536F3F00388E52 /* BalanceStoreController.m */; };
+		BED03B611C537CC800388E52 /* UIFontDescriptor+AvenirNext.m in Sources */ = {isa = PBXBuildFile; fileRef = BED03B601C537CC800388E52 /* UIFontDescriptor+AvenirNext.m */; };
+		BED03B641C537D2D00388E52 /* UIColor+ColorPalette.m in Sources */ = {isa = PBXBuildFile; fileRef = BED03B631C537D2D00388E52 /* UIColor+ColorPalette.m */; };
+		BED03B681C53850400388E52 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = BED03B671C53850400388E52 /* Utilities.m */; };
+		BED03B6B1C5389BD00388E52 /* PlaidLinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BED03B6A1C5389BD00388E52 /* PlaidLinkViewController.m */; };
+		BED03B6D1C53935700388E52 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = BED03B6C1C53935700388E52 /* index.html */; };
 		BEE0BC811C5334E3000C8A27 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE0BC801C5334E3000C8A27 /* main.m */; };
 		BEE0BC841C5334E3000C8A27 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE0BC831C5334E3000C8A27 /* AppDelegate.m */; };
 		BEE0BC8C1C5334E3000C8A27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEE0BC8B1C5334E3000C8A27 /* Assets.xcassets */; };
@@ -21,6 +33,29 @@
 /* Begin PBXFileReference section */
 		05A63E0129F992D54DF9BACD /* Pods-Ink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ink.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ink/Pods-Ink.release.xcconfig"; sourceTree = "<group>"; };
 		092805287C0BE4B6F9C98B3D /* Pods-Ink.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ink.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ink/Pods-Ink.debug.xcconfig"; sourceTree = "<group>"; };
+		BE4B038B1C53C35700077459 /* Balance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Balance.h; sourceTree = "<group>"; };
+		BE4B038C1C53C35700077459 /* Balance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Balance.m; sourceTree = "<group>"; };
+		BE4B03901C53F50200077459 /* HistoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryTableViewCell.h; sourceTree = "<group>"; };
+		BE4B03911C53F50200077459 /* HistoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewCell.m; sourceTree = "<group>"; };
+		BE4B03931C5412A900077459 /* Transaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transaction.h; sourceTree = "<group>"; };
+		BE4B03941C5412A900077459 /* Transaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Transaction.m; sourceTree = "<group>"; };
+		BE4B03961C54282500077459 /* HistoryStoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryStoreController.h; sourceTree = "<group>"; };
+		BE4B03971C54282500077459 /* HistoryStoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryStoreController.m; sourceTree = "<group>"; };
+		BED03B551C535AE700388E52 /* AutolayoutHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutolayoutHelper.h; sourceTree = "<group>"; };
+		BED03B561C535AE700388E52 /* AutolayoutHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutolayoutHelper.m; sourceTree = "<group>"; };
+		BED03B571C535AE700388E52 /* LinearLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinearLayout.h; sourceTree = "<group>"; };
+		BED03B581C535AE700388E52 /* LinearLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinearLayout.m; sourceTree = "<group>"; };
+		BED03B5C1C536F3F00388E52 /* BalanceStoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalanceStoreController.h; sourceTree = "<group>"; };
+		BED03B5D1C536F3F00388E52 /* BalanceStoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BalanceStoreController.m; sourceTree = "<group>"; };
+		BED03B5F1C537CC800388E52 /* UIFontDescriptor+AvenirNext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFontDescriptor+AvenirNext.h"; sourceTree = "<group>"; };
+		BED03B601C537CC800388E52 /* UIFontDescriptor+AvenirNext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFontDescriptor+AvenirNext.m"; sourceTree = "<group>"; };
+		BED03B621C537D2D00388E52 /* UIColor+ColorPalette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ColorPalette.h"; sourceTree = "<group>"; };
+		BED03B631C537D2D00388E52 /* UIColor+ColorPalette.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ColorPalette.m"; sourceTree = "<group>"; };
+		BED03B661C53850400388E52 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
+		BED03B671C53850400388E52 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
+		BED03B691C5389BD00388E52 /* PlaidLinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaidLinkViewController.h; sourceTree = "<group>"; };
+		BED03B6A1C5389BD00388E52 /* PlaidLinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaidLinkViewController.m; sourceTree = "<group>"; };
+		BED03B6C1C53935700388E52 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		BEE0BC7C1C5334E3000C8A27 /* Ink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEE0BC801C5334E3000C8A27 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BEE0BC821C5334E3000C8A27 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -68,6 +103,39 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BE4B038E1C53C35A00077459 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				BE4B03931C5412A900077459 /* Transaction.h */,
+				BE4B03941C5412A900077459 /* Transaction.m */,
+				BE4B038B1C53C35700077459 /* Balance.h */,
+				BE4B038C1C53C35700077459 /* Balance.m */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
+		BED03B5B1C535AEA00388E52 /* AutoLayout Helper */ = {
+			isa = PBXGroup;
+			children = (
+				BED03B551C535AE700388E52 /* AutolayoutHelper.h */,
+				BED03B561C535AE700388E52 /* AutolayoutHelper.m */,
+				BED03B571C535AE700388E52 /* LinearLayout.h */,
+				BED03B581C535AE700388E52 /* LinearLayout.m */,
+			);
+			name = "AutoLayout Helper";
+			sourceTree = "<group>";
+		};
+		BED03B651C537D3400388E52 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				BED03B621C537D2D00388E52 /* UIColor+ColorPalette.h */,
+				BED03B631C537D2D00388E52 /* UIColor+ColorPalette.m */,
+				BED03B5F1C537CC800388E52 /* UIFontDescriptor+AvenirNext.h */,
+				BED03B601C537CC800388E52 /* UIFontDescriptor+AvenirNext.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		BEE0BC731C5334E3000C8A27 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +157,13 @@
 		BEE0BC7E1C5334E3000C8A27 /* Ink */ = {
 			isa = PBXGroup;
 			children = (
+				BE4B03901C53F50200077459 /* HistoryTableViewCell.h */,
+				BE4B03911C53F50200077459 /* HistoryTableViewCell.m */,
+				BE4B038E1C53C35A00077459 /* Objects */,
+				BED03B661C53850400388E52 /* Utilities.h */,
+				BED03B671C53850400388E52 /* Utilities.m */,
+				BED03B651C537D3400388E52 /* Categories */,
+				BED03B5B1C535AEA00388E52 /* AutoLayout Helper */,
 				BEE0BC9E1C5339E1000C8A27 /* StoreController */,
 				BEE0BC9A1C53390B000C8A27 /* ViewController */,
 				BEE0BC821C5334E3000C8A27 /* AppDelegate.h */,
@@ -104,6 +179,7 @@
 		BEE0BC7F1C5334E3000C8A27 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BED03B6C1C53935700388E52 /* index.html */,
 				BEE0BC801C5334E3000C8A27 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -114,6 +190,8 @@
 			children = (
 				BEE0BC9F1C534BC3000C8A27 /* BalanceViewController.h */,
 				BEE0BCA01C534BC3000C8A27 /* BalanceViewController.m */,
+				BED03B691C5389BD00388E52 /* PlaidLinkViewController.h */,
+				BED03B6A1C5389BD00388E52 /* PlaidLinkViewController.m */,
 				BEE0BCA21C534BD0000C8A27 /* HistoryViewController.h */,
 				BEE0BCA31C534BD0000C8A27 /* HistoryViewController.m */,
 				BEE0BC961C5335BE000C8A27 /* LoginViewController.h */,
@@ -127,6 +205,10 @@
 			children = (
 				BEE0BC9B1C5339DC000C8A27 /* LoginStoreController.h */,
 				BEE0BC9C1C5339DC000C8A27 /* LoginStoreController.m */,
+				BED03B5C1C536F3F00388E52 /* BalanceStoreController.h */,
+				BED03B5D1C536F3F00388E52 /* BalanceStoreController.m */,
+				BE4B03961C54282500077459 /* HistoryStoreController.h */,
+				BE4B03971C54282500077459 /* HistoryStoreController.m */,
 			);
 			name = StoreController;
 			sourceTree = "<group>";
@@ -191,6 +273,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BED03B6D1C53935700388E52 /* index.html in Resources */,
 				BEE0BC8F1C5334E3000C8A27 /* LaunchScreen.storyboard in Resources */,
 				BEE0BC8C1C5334E3000C8A27 /* Assets.xcassets in Resources */,
 			);
@@ -253,10 +336,21 @@
 			files = (
 				BEE0BC841C5334E3000C8A27 /* AppDelegate.m in Sources */,
 				BEE0BCA11C534BC3000C8A27 /* BalanceViewController.m in Sources */,
+				BED03B5A1C535AE700388E52 /* LinearLayout.m in Sources */,
 				BEE0BC811C5334E3000C8A27 /* main.m in Sources */,
+				BED03B5E1C536F3F00388E52 /* BalanceStoreController.m in Sources */,
+				BE4B03921C53F50200077459 /* HistoryTableViewCell.m in Sources */,
+				BED03B6B1C5389BD00388E52 /* PlaidLinkViewController.m in Sources */,
+				BE4B03981C54282500077459 /* HistoryStoreController.m in Sources */,
+				BED03B611C537CC800388E52 /* UIFontDescriptor+AvenirNext.m in Sources */,
+				BED03B681C53850400388E52 /* Utilities.m in Sources */,
 				BEE0BC981C5335BE000C8A27 /* LoginViewController.m in Sources */,
+				BED03B641C537D2D00388E52 /* UIColor+ColorPalette.m in Sources */,
+				BE4B038D1C53C35700077459 /* Balance.m in Sources */,
 				BEE0BC9D1C5339DC000C8A27 /* LoginStoreController.m in Sources */,
 				BEE0BCA41C534BD0000C8A27 /* HistoryViewController.m in Sources */,
+				BE4B03951C5412A900077459 /* Transaction.m in Sources */,
+				BED03B591C535AE700388E52 /* AutolayoutHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AFNetworking.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Bolts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -19,13 +24,79 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>JNKeychain.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Ink.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Realm.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>XYDoughnutChart-XYDoughnutChart.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>XYDoughnutChart.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict/>
+	<dict>
+		<key>2BB38F3392FAEF3DB050CB97B103BFC3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>32D02FEE8863A95A517FC4807E0CFB66</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>546EF13BB015E3AE3F2038B9DEF4138B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5877806204A675E662F8C72C5C61F4BC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6C0648F6B67AAB181E65FAD788564813</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>97C541B04AAF72FF02D85371CF927FD3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9A85144824E885257522962C2C6CE5B1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>ACE440EE1CC3155FE5C97EB383B3133E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FB392E229E103F5C68038060EFE6E0CF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
 </dict>
 </plist>
