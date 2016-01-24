@@ -30,12 +30,15 @@ static NSString *identifier = @"com.ink.history";
   [super viewDidLoad];
   self.view.backgroundColor = [UIColor whiteColor];
   _tableView = [[UITableView alloc]init];
-  UILabel *frontLabel = [UILabel new];
-  frontLabel.font = [UIFont fontWithName:@"AvenirNext-Regular" size:45];
-  frontLabel.textAlignment = NSTextAlignmentCenter;
+  [_tableView registerClass:[HistoryTableViewCell class] forCellReuseIdentifier:identifier];
+//  UILabel *frontLabel = [UILabel new];
+//  frontLabel.font = [UIFont fontWithName:@"AvenirNext-Regular" size:45];
+//  frontLabel.textAlignment = NSTextAlignmentCenter;
   _tableView.delegate = self;
   _tableView.dataSource = self;
-  [AutolayoutHelper configureView:self.view subViews:VarBindings(frontLabel, _tableView) constraints:@[@"H:|[_tableView]|", @"H:|-[frontLabel]-|", @"V:|-[frontLabel]-12-[_tableView]|"]];
+  self.tableView.rowHeight = UITableViewAutomaticDimension;
+  self.tableView.estimatedRowHeight = 80.0;
+  [AutolayoutHelper configureView:self.view subViews:VarBindings (_tableView) constraints:@[@"H:|[_tableView]|", @"V:|[_tableView]|"]];
   
   [[HistoryStoreController sharedHistoryStoreController]getLastMonthsHistory:^(NSArray *results) {
     _transactions = results;

@@ -14,6 +14,7 @@
 
 + (UIColor *)inkRed;
 + (UIColor *)inkGreen;
++ (UIColor *)inkPurple;
 
 
 @end

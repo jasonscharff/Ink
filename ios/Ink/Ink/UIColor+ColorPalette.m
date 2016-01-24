@@ -24,5 +24,11 @@
                       alpha:1.f];
 }
 
++ (UIColor *)inkPurple {
+  return [self colorWithRed:142.f   / 255.0f
+                      green:68.0f / 255.0f
+                       blue:173.0f / 255.0f
+                      alpha:1.f];
+}
 
 @end

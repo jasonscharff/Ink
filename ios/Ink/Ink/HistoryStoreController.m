@@ -12,6 +12,8 @@
 #import "JNKeychain.h"
 #import "Transaction.h"
 
+static int timeCutoff = 60*60;
+
 @implementation HistoryStoreController
 
 + (instancetype)sharedHistoryStoreController {
@@ -25,6 +27,23 @@
 }
 
 -(void)getLastMonthsHistory : (void (^)(NSArray * results))completion {
+  RLMResults *transactions = [Transaction allObjects];
+  if(transactions.count > 0) {
+    Transaction *t1 = transactions[0];
+    if([t1.lastUpdated timeIntervalSinceDate:[NSDate date]] > timeCutoff) {
+      [self queryFromInternet:completion];
+    }
+    else {
+      NSArray *results = [self queryAllObjects];
+      completion(results);
+    }
+  }
+  else {
+    [self queryFromInternet:completion];
+  }
+}
+
+-(void)queryFromInternet : (void (^)(NSArray * results))completion {
   AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
   manager.responseSerializer = [AFJSONResponseSerializer serializer];
   manager.requestSerializer = [AFJSONRequestSerializer serializer];
@@ -36,17 +55,17 @@
     NSLog(@"error = %@", error);
     completion(@[]);
   }];
-  
 }
 
--(void)saveResponseObject : (NSArray *)responseObject {
+-(void)saveResponseObject : (NSDictionary *)responseObject {
   RLMRealm *realm = [RLMRealm defaultRealm];
   if(responseObject.count > 0) {
     [self wipeRealm];
   }
   [[RLMRealm defaultRealm] beginWriteTransaction];
   NSLog(@"response object = %@", responseObject);
-  for (NSDictionary *object in responseObject) {
+  NSDictionary *response = responseObject[@"transactions"];
+  for (NSDictionary *object in response) {
     Transaction *transaction = [[Transaction alloc]init];
     [transaction configureFromResponse:object];
     [realm addObject:transaction];

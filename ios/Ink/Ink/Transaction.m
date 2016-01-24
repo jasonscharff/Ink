@@ -13,7 +13,7 @@
 -(void)configureFromResponse : (NSDictionary *) response{
   self.merchant = response[@"name"];
   self.date = response[@"date"];
-  if(response[@"amount"] < 0) {
+  if(((NSNumber *)response[@"amount"]).floatValue < 0) {
     self.lostMoney = NO;
     self.amount = ((NSNumber *)response[@"amount"]).floatValue * -1;
   }
@@ -22,6 +22,8 @@
     self.amount = ((NSNumber *)response[@"amount"]).floatValue;
   }
   self.amountSaved = ((NSNumber *)response[@"amount_saved"]).floatValue;
+  
+  self.lastUpdated = [NSDate date];
   
 }
 

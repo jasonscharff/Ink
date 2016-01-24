@@ -17,6 +17,7 @@
 @property float amountSaved;
 @property BOOL lostMoney;
 @property NSString *date;
+@property NSDate *lastUpdated;
 
 @end
 

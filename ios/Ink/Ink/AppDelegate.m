@@ -12,6 +12,7 @@
 #import "HistoryViewController.h"
 #import "LoginStoreController.h"
 #import "LoginViewController.h"
+#import "SendMoneyViewController.h"
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
@@ -49,7 +50,8 @@
   UIViewController *vc1 = [[BalanceViewController alloc]init];
   UITabBarItem *item1 = [[UITabBarItem alloc]initWithTitle:@"" image:nil selectedImage:nil];
   UIViewController *vc2 = [[HistoryViewController alloc]init];
-  tabBarController.viewControllers = @[vc1, vc2];
+  UIViewController *vc3 = [[SendMoneyViewController alloc]init];
+  tabBarController.viewControllers = @[vc1, vc2, vc3];
   vc1.tabBarItem = item1;
   [self.navigationController setViewControllers:@[tabBarController]];
 }

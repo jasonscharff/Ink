@@ -12,6 +12,10 @@
 		BE4B03921C53F50200077459 /* HistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4B03911C53F50200077459 /* HistoryTableViewCell.m */; };
 		BE4B03951C5412A900077459 /* Transaction.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4B03941C5412A900077459 /* Transaction.m */; };
 		BE4B03981C54282500077459 /* HistoryStoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4B03971C54282500077459 /* HistoryStoreController.m */; };
+		BE4B039B1C54554500077459 /* SendMoneyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4B039A1C54554500077459 /* SendMoneyViewController.m */; };
+		BE7B11641C54562F005EA865 /* BottomBorderTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7B11631C54562F005EA865 /* BottomBorderTextField.m */; };
+		BE7B11681C547ED8005EA865 /* SendMoneyStoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7B11671C547ED8005EA865 /* SendMoneyStoreController.m */; };
+		BE7B116B1C548204005EA865 /* NewsfeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7B116A1C548204005EA865 /* NewsfeedViewController.m */; };
 		BED03B591C535AE700388E52 /* AutolayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BED03B561C535AE700388E52 /* AutolayoutHelper.m */; };
 		BED03B5A1C535AE700388E52 /* LinearLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BED03B581C535AE700388E52 /* LinearLayout.m */; };
 		BED03B5E1C536F3F00388E52 /* BalanceStoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = BED03B5D1C536F3F00388E52 /* BalanceStoreController.m */; };
@@ -41,6 +45,14 @@
 		BE4B03941C5412A900077459 /* Transaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Transaction.m; sourceTree = "<group>"; };
 		BE4B03961C54282500077459 /* HistoryStoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryStoreController.h; sourceTree = "<group>"; };
 		BE4B03971C54282500077459 /* HistoryStoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryStoreController.m; sourceTree = "<group>"; };
+		BE4B03991C54554500077459 /* SendMoneyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendMoneyViewController.h; sourceTree = "<group>"; };
+		BE4B039A1C54554500077459 /* SendMoneyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendMoneyViewController.m; sourceTree = "<group>"; };
+		BE7B11621C54562F005EA865 /* BottomBorderTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BottomBorderTextField.h; sourceTree = "<group>"; };
+		BE7B11631C54562F005EA865 /* BottomBorderTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottomBorderTextField.m; sourceTree = "<group>"; };
+		BE7B11661C547ED8005EA865 /* SendMoneyStoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendMoneyStoreController.h; sourceTree = "<group>"; };
+		BE7B11671C547ED8005EA865 /* SendMoneyStoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendMoneyStoreController.m; sourceTree = "<group>"; };
+		BE7B11691C548204005EA865 /* NewsfeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsfeedViewController.h; sourceTree = "<group>"; };
+		BE7B116A1C548204005EA865 /* NewsfeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsfeedViewController.m; sourceTree = "<group>"; };
 		BED03B551C535AE700388E52 /* AutolayoutHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutolayoutHelper.h; sourceTree = "<group>"; };
 		BED03B561C535AE700388E52 /* AutolayoutHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutolayoutHelper.m; sourceTree = "<group>"; };
 		BED03B571C535AE700388E52 /* LinearLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinearLayout.h; sourceTree = "<group>"; };
@@ -114,6 +126,17 @@
 			name = Objects;
 			sourceTree = "<group>";
 		};
+		BE7B11651C545634005EA865 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BE4B03901C53F50200077459 /* HistoryTableViewCell.h */,
+				BE4B03911C53F50200077459 /* HistoryTableViewCell.m */,
+				BE7B11621C54562F005EA865 /* BottomBorderTextField.h */,
+				BE7B11631C54562F005EA865 /* BottomBorderTextField.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		BED03B5B1C535AEA00388E52 /* AutoLayout Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,8 +180,7 @@
 		BEE0BC7E1C5334E3000C8A27 /* Ink */ = {
 			isa = PBXGroup;
 			children = (
-				BE4B03901C53F50200077459 /* HistoryTableViewCell.h */,
-				BE4B03911C53F50200077459 /* HistoryTableViewCell.m */,
+				BE7B11651C545634005EA865 /* Views */,
 				BE4B038E1C53C35A00077459 /* Objects */,
 				BED03B661C53850400388E52 /* Utilities.h */,
 				BED03B671C53850400388E52 /* Utilities.m */,
@@ -188,6 +210,10 @@
 		BEE0BC9A1C53390B000C8A27 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				BE7B11691C548204005EA865 /* NewsfeedViewController.h */,
+				BE7B116A1C548204005EA865 /* NewsfeedViewController.m */,
+				BE4B03991C54554500077459 /* SendMoneyViewController.h */,
+				BE4B039A1C54554500077459 /* SendMoneyViewController.m */,
 				BEE0BC9F1C534BC3000C8A27 /* BalanceViewController.h */,
 				BEE0BCA01C534BC3000C8A27 /* BalanceViewController.m */,
 				BED03B691C5389BD00388E52 /* PlaidLinkViewController.h */,
@@ -203,6 +229,8 @@
 		BEE0BC9E1C5339E1000C8A27 /* StoreController */ = {
 			isa = PBXGroup;
 			children = (
+				BE7B11661C547ED8005EA865 /* SendMoneyStoreController.h */,
+				BE7B11671C547ED8005EA865 /* SendMoneyStoreController.m */,
 				BEE0BC9B1C5339DC000C8A27 /* LoginStoreController.h */,
 				BEE0BC9C1C5339DC000C8A27 /* LoginStoreController.m */,
 				BED03B5C1C536F3F00388E52 /* BalanceStoreController.h */,
@@ -247,6 +275,7 @@
 				TargetAttributes = {
 					BEE0BC7B1C5334E3000C8A27 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 3R5J785EXT;
 					};
 				};
 			};
@@ -338,10 +367,14 @@
 				BEE0BCA11C534BC3000C8A27 /* BalanceViewController.m in Sources */,
 				BED03B5A1C535AE700388E52 /* LinearLayout.m in Sources */,
 				BEE0BC811C5334E3000C8A27 /* main.m in Sources */,
+				BE7B116B1C548204005EA865 /* NewsfeedViewController.m in Sources */,
+				BE7B11681C547ED8005EA865 /* SendMoneyStoreController.m in Sources */,
 				BED03B5E1C536F3F00388E52 /* BalanceStoreController.m in Sources */,
 				BE4B03921C53F50200077459 /* HistoryTableViewCell.m in Sources */,
 				BED03B6B1C5389BD00388E52 /* PlaidLinkViewController.m in Sources */,
+				BE4B039B1C54554500077459 /* SendMoneyViewController.m in Sources */,
 				BE4B03981C54282500077459 /* HistoryStoreController.m in Sources */,
+				BE7B11641C54562F005EA865 /* BottomBorderTextField.m in Sources */,
 				BED03B611C537CC800388E52 /* UIFontDescriptor+AvenirNext.m in Sources */,
 				BED03B681C53850400388E52 /* Utilities.m in Sources */,
 				BEE0BC981C5335BE000C8A27 /* LoginViewController.m in Sources */,
@@ -453,11 +486,14 @@
 			baseConfigurationReference = 092805287C0BE4B6F9C98B3D /* Pods-Ink.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Ink/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jasonscharff.Ink;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -466,11 +502,14 @@
 			baseConfigurationReference = 05A63E0129F992D54DF9BACD /* Pods-Ink.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Ink/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jasonscharff.Ink;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

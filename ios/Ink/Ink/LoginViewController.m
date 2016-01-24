@@ -24,6 +24,9 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   self.view.backgroundColor = [UIColor whiteColor];
+  
+  UILabel *label = [UILabel new];
+  
   NSArray *permissions = @[@"public_profile", @"email", @"user_about_me", @"user_education_history",@"user_likes", @"user_relationships", @"user_relationship_details", @"user_work_history"];
   FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
   loginButton.readPermissions = permissions;
@@ -36,8 +39,15 @@
 
 -(void)loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error {
   if(!error) {
-    [[LoginStoreController sharedLoginStoreController]sendLoginToken:[FBSDKAccessToken currentAccessToken].tokenString];
-    [self proceedToNextView];
+    
+    [[LoginStoreController sharedLoginStoreController]sendLoginToken:[FBSDKAccessToken currentAccessToken].tokenString :^(BOOL hasPLToken) {
+      if(hasPLToken) {
+        [self skipPlaid];
+      }
+      else {
+        [self goPlaid];
+      }
+    }];
     
   }
   
@@ -47,11 +57,14 @@
   
 }
 
--(void)proceedToNextView {
+
+-(void)goPlaid {
   PlaidLinkViewController *vc = [[PlaidLinkViewController alloc]init];
   [self.navigationController pushViewController:vc animated:YES];
-//  AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-//  [appDelegate createTabBarController];
+}
+-(void)skipPlaid {
+  AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+  [appDelegate createTabBarController];
 }
 
 

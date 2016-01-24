@@ -12,7 +12,7 @@
 
 + (instancetype)sharedLoginStoreController;
 - (BOOL)isLoggedIn;
-- (void)sendLoginToken: (NSString *)token;
+- (void)sendLoginToken:(NSString *)token : (void (^)(BOOL hasPLToken))completion;
 - (void)sendPlaidToken: (NSString *)token;
 
 @end

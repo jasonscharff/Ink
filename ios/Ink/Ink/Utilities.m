@@ -18,6 +18,7 @@
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     formatter.numberStyle = NSNumberFormatterDecimalStyle;
     formatter.maximumFractionDigits = 2;
+    formatter.minimumFractionDigits = 2;
     formatter.roundingMode = NSNumberFormatterRoundUp;
     _sharedInstance = formatter;
   });
@@ -25,6 +26,10 @@
   NSString *numberString = [_sharedInstance stringFromNumber:@(number)];
   
   return [NSString stringWithFormat:@"$%@", numberString];
+}
+
++ (NSString *)formatDateFromPlaid:(NSString *)original {
+  return original;
 }
 
 @end

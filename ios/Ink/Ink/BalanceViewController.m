@@ -37,8 +37,6 @@ static int KINKDonutChartStrokeLength = 20;
   self.view.backgroundColor = [UIColor whiteColor];
   [self addDonutChart];
   [self addCircle];
-  [self addTotalLabel];
-  [self addIndividualLabels];
 }
 
 
@@ -57,6 +55,8 @@ static int KINKDonutChartStrokeLength = 20;
   [[BalanceStoreController sharedBalanceStoreController]refreshData:^(NSArray *results) {
     self.donutValues = results;
     NSLog(@"results = %@", results);
+    [self addTotalLabel];
+    [self addIndividualLabels];
     [_donutChart reloadData:NO];
   }];
 }
@@ -78,16 +78,18 @@ static int KINKDonutChartStrokeLength = 20;
 -(void)addTotalLabel {
   _totalLabel = [UILabel new];
   _totalLabel.font = [UIFont fontWithDescriptor:[UIFontDescriptor preferredAvenirNextFontDescriptorWithTextStyle:UIFontTextStyleHeadline]size:0];
-  [[BalanceStoreController sharedBalanceStoreController]amountOfMoneyAvailable:^(CGFloat available) {
-    [[BalanceStoreController sharedBalanceStoreController]amountOfMoneySaved:^(CGFloat saved) {
-      NSString *text = [Utilities roundedDollarStringFromNumbers:saved+available];
-      _totalLabel.text = text;
-    }];
-  }];
+  NSString *text = [Utilities roundedDollarStringFromNumbers:((NSNumber *)self.donutValues[0]).floatValue];
+  _totalLabel.text = text;
+//  [[BalanceStoreController sharedBalanceStoreController]amountOfMoneyAvailable:^(CGFloat available) {
+//    [[BalanceStoreController sharedBalanceStoreController]amountOfMoneySaved:^(CGFloat saved) {
+//      NSString *text = [Utilities roundedDollarStringFromNumbers:saved+available];
+//      _totalLabel.text = text;
+//    }];
+//  }];
   
 
   _totalLabel.textAlignment = NSTextAlignmentCenter;
-  _totalLabel.textColor = [UIColor inkGreen];
+  _totalLabel.textColor = [UIColor inkPurple];
   _totalLabel.frame = CGRectMake(0, 0, _donutChart.frame.size.width, 100);
   _totalLabel.center = CGPointMake(_donutChart.center.x, _donutChart.center.y - _donutChart.frame.size.height/6);
   
@@ -102,8 +104,8 @@ static int KINKDonutChartStrokeLength = 20;
   NSNumber *checkingTop = @(self.donutChart.center.y + 20);
   [AutolayoutHelper configureView:self.view subViews:VarBindings(_checkingLabel, _savingsLabel) metrics: VarBindings(checkingTop) constraints:@[@"H:|-[_checkingLabel]-|", @"H:|-[_savingsLabel]-|", @"V:|-checkingTop-[_checkingLabel]", @"V:[_checkingLabel]-10-[_savingsLabel]"]];
   
-  [[BalanceStoreController sharedBalanceStoreController]amountOfMoneyAvailable:^(CGFloat value) {
-    NSString *baseString = [NSString stringWithFormat:@"What you can spend: %@", [Utilities roundedDollarStringFromNumbers:value]];
+    CGFloat checkingVal = ((NSNumber *)self.donutValues[1]).floatValue;
+    NSString *baseString = [NSString stringWithFormat:@"What you can spend: %@", [Utilities roundedDollarStringFromNumbers:checkingVal]];
    
     NSMutableAttributedString *checking = [[NSMutableAttributedString alloc] initWithString:baseString];
     
@@ -116,23 +118,21 @@ static int KINKDonutChartStrokeLength = 20;
     [checking addAttribute:NSForegroundColorAttributeName value:[UIColor inkRed] range:NSMakeRange(range.location+range.length, baseString.length-range.length)];
     
     _checkingLabel.attributedText = checking;
-  }];
   
-  [[BalanceStoreController sharedBalanceStoreController]amountOfMoneySaved:^(CGFloat value) {
-    NSString *baseString = [NSString stringWithFormat:@"What you've saved: %@", [Utilities roundedDollarStringFromNumbers:value]];
+    CGFloat savingValue = ((NSNumber *)self.donutValues[2]).floatValue;
+    NSString *baseStringSavings = [NSString stringWithFormat:@"What you've saved: %@", [Utilities roundedDollarStringFromNumbers:savingValue]];
     
-    NSMutableAttributedString *savings = [[NSMutableAttributedString alloc] initWithString:baseString];
+    NSMutableAttributedString *savings = [[NSMutableAttributedString alloc] initWithString:baseStringSavings];
     
-    NSRange range = [baseString rangeOfString:@"What you've saved: "];
+    NSRange rangeSavings = [baseStringSavings rangeOfString:@"What you've saved: "];
     
-    [savings addAttribute:@"NSFontAttributeName" value:[UIFont fontWithDescriptor:[UIFontDescriptor preferredAvenirNextFontDescriptorWithTextStyle:UIFontTextStyleHeadline]size:0] range:NSMakeRange(0, baseString.length)];
+    [savings addAttribute:@"NSFontAttributeName" value:[UIFont fontWithDescriptor:[UIFontDescriptor preferredAvenirNextFontDescriptorWithTextStyle:UIFontTextStyleHeadline]size:0] range:NSMakeRange(0, baseStringSavings.length)];
     
-    [savings addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:range];
+    [savings addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:rangeSavings];
     
-    [savings addAttribute:NSForegroundColorAttributeName value:[UIColor inkGreen] range:NSMakeRange(range.location+range.length, baseString.length-range.length)];
+    [savings addAttribute:NSForegroundColorAttributeName value:[UIColor inkGreen] range:NSMakeRange(rangeSavings.location+rangeSavings.length, baseStringSavings.length-rangeSavings.length)];
     
     _savingsLabel.attributedText = savings;
-  }];
   
 }
 

@@ -14,10 +14,11 @@
 #import "UIColor+ColorPalette.h"
 #import "Utilities.h"
 
+static int maxNameLength = 15;
+
 @interface HistoryTableViewCell()
 
 @property (nonatomic, strong) UILabel *dateLabel;
-@property (nonatomic, strong) UIView *separator;
 @property (nonatomic, strong) UILabel *merchant;
 @property (nonatomic, strong) UILabel *amount;
 @property (nonatomic, strong) UILabel *savedLabel;
@@ -30,36 +31,35 @@
   self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
   
   self.dateLabel = [UILabel new];
-  self.separator = [UIView new];
   self.merchant = [UILabel new];
   self.amount = [UILabel new];
+  _savedLabel = [UILabel new];
   
   self.dateLabel.textAlignment = NSTextAlignmentCenter;
-  self.dateLabel.font = [UIFont fontWithName:@"AvenirNext-Regular" size:35];
+  self.dateLabel.font = [UIFont fontWithName:@"AvenirNext-DemiBold" size:18];
   
-  self.separator.backgroundColor = [UIColor lightGrayColor];
   
-  self.merchant.font = [UIFont fontWithDescriptor:[UIFontDescriptor preferredAvenirNextFontDescriptorWithTextStyle:UIFontTextStyleSubheadline]size:0];
+  self.merchant.font = [UIFont fontWithDescriptor:[UIFontDescriptor preferredAvenirNextFontDescriptorWithTextStyle:UIFontTextStyleHeadline]size:0];
   
   self.amount.font = [UIFont fontWithDescriptor:[UIFontDescriptor preferredAvenirNextFontDescriptorWithTextStyle:UIFontTextStyleHeadline]size:0];
+  
+  _amount.textAlignment = NSTextAlignmentRight;
   
   self.savedLabel.font = [UIFont fontWithDescriptor:[UIFontDescriptor preferredAvenirNextFontDescriptorWithTextStyle:UIFontTextStyleCaption1]size:0];
   
   
   
-  [AutolayoutHelper configureView:self.contentView subViews:VarBindings(_dateLabel, _separator, _merchant, _amount) constraints:@[@"H:|-[_dateLabel]-|", @"V:|-[_dateLabel]-[_separator]-14-[_merchant]", @"V:[separator(1)]-14-[_amount]-[_savedLabel]-|", @"H:|-4-[separator]-4|", @"H:|-[_merchant]", @"H:[_amount]-|", @"H:[_savedLabel]-|"]];
+  [AutolayoutHelper configureView:self.contentView subViews:VarBindings(_dateLabel, _merchant, _amount, _savedLabel) constraints:@[@"H:|-[_dateLabel]-|", @"V:|-[_dateLabel]-14-[_merchant]", @"V:[_dateLabel]-14-[_amount]-[_savedLabel]-|", @"H:|-[_merchant][_amount]-|", @"H:[_savedLabel]-|"]];
 
   return self;
 }
 
 -(void)setupFromTransaction: (Transaction *)transaction  shouldShowDate : (BOOL)shouldShowDate {
   if(shouldShowDate) {
-    self.separator.hidden = NO;
     self.dateLabel.hidden = NO;
     self.dateLabel.text = [Utilities formatDateFromPlaid:transaction.date];
   }
   else {
-    self.separator.hidden = YES;
     self.dateLabel.hidden = YES;
     self.dateLabel.text = @"";
   }
@@ -72,13 +72,24 @@
   }
   
   if(transaction.amountSaved > 0) {
-    self.savedLabel.text = [NSString stringWithFormat:@"Saved %@", [Utilities roundedDollarStringFromNumbers:transaction.amountSaved]];
+    NSString *baseString = [NSString stringWithFormat:@"Saved %@", [Utilities roundedDollarStringFromNumbers:transaction.amountSaved]];
+    
+    NSMutableAttributedString *saved = [[NSMutableAttributedString alloc] initWithString:baseString];
+    
+    NSRange range = [baseString rangeOfString:@"Saved "];
+    
+    [saved addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:range];
+    [saved addAttribute:NSForegroundColorAttributeName value:[UIColor inkGreen] range:NSMakeRange(range.location+range.length, baseString.length-range.length)];
+    
+    self.savedLabel.attributedText = saved;
   }
   else {
-    self.savedLabel.text = @"";
+    self.savedLabel.attributedText = [[NSAttributedString alloc]initWithString:@""];
   }
   
-  self.amount.text = [Utilities roundedDollarStringFromNumbers:transaction.amount];
+  self.amount.text = [Utilities roundedDollarStringFromNumbers:(transaction.amount)];
+  self.merchant.text = [transaction.merchant substringToIndex: MIN(maxNameLength, [transaction.merchant length])];
+  
   
   
   
