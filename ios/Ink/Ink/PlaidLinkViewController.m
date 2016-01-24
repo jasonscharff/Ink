@@ -20,6 +20,10 @@
 
 @implementation PlaidLinkViewController
 
+-(void)viewWillAppear:(BOOL)animated {
+  self.navigationController.navigationBar.topItem.title = @"Ink";
+}
+
 - (void)viewDidLoad {
   [super viewDidLoad];
   _webView = [[UIWebView alloc]init];

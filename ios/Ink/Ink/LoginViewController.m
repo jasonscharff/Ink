@@ -23,6 +23,11 @@
 
 @implementation LoginViewController
 
+
+-(void)viewWillAppear:(BOOL)animated {
+  self.navigationController.navigationBar.topItem.title = @"Ink";
+}
+
 - (void)viewDidLoad {
   [super viewDidLoad];
   self.view.backgroundColor = [UIColor whiteColor];

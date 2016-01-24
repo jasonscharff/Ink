@@ -26,6 +26,10 @@ static NSString *reuseIdentifier = @"com.ink.newsfeed";
 
 @implementation NewsfeedViewController
 
+-(void)viewWillAppear:(BOOL)animated {
+  self.navigationController.navigationBar.topItem.title = @"Ink";
+}
+
 - (void)viewDidLoad {
   [super viewDidLoad];
   self.tableView = [[UITableView alloc]init];

@@ -32,7 +32,14 @@
   self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
   self.navigationController = [[UINavigationController alloc]init];
   self.navigationController.navigationBar.translucent = NO;
-  self.navigationController.title = @"Ink";
+  
+  [self.navigationController.navigationBar setTitleTextAttributes:
+   @{NSForegroundColorAttributeName:[UIColor blackColor],
+     NSFontAttributeName:[UIFont fontWithName:@"AvenirNext-Regular" size:21]}];
+  
+  
+  self.navigationController.navigationItem.title = @"Ink";
+  
   if([[LoginStoreController sharedLoginStoreController]isLoggedIn]) {
     [self createTabBarController];
   }
