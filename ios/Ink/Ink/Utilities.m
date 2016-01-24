@@ -8,6 +8,7 @@
 
 #import "Utilities.h"
 
+
 @implementation Utilities
 
 + (NSString *)roundedDollarStringFromNumbers : (CGFloat)number {
@@ -29,7 +30,20 @@
 }
 
 + (NSString *)formatDateFromPlaid:(NSString *)original {
-  return original;
+  static dispatch_once_t once;
+  static NSDictionary *numberToMonths;
+  dispatch_once(&once, ^{
+    NSDictionary *dictionary = @{@"01":@"January", @"02" : @"February", @"03" : @"March", @"04" : @"April", @"05" : @"May", @"06" : @"June", @"07" : @"July", @"08" : @"August", @"09" : @"September", @"10" : @"October", @"11" : @"November", @"12" : @"December"};
+    numberToMonths = dictionary;
+  });
+  
+  NSString *year = [original substringWithRange:NSMakeRange(0, 4)];
+  NSString *month = [original substringWithRange:NSMakeRange(5, 2)];
+  NSString *day = [original substringWithRange:NSMakeRange(8, 2)];
+  
+  NSString *composite = [NSString stringWithFormat:@"%@ %@, %@", numberToMonths[month], day, year];
+  
+  return composite;
 }
 
 
