@@ -50,6 +50,9 @@
 }
 
 -(void)loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error {
+  if(result.isCancelled) {
+    return;
+  }
   if(!error) {
     
     [[LoginStoreController sharedLoginStoreController]sendLoginToken:[FBSDKAccessToken currentAccessToken].tokenString :^(BOOL hasPLToken) {
