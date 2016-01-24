@@ -39,9 +39,10 @@ static int KINKDonutChartStrokeLength = 20;
   self.spinner = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
   self.spinner.layer.zPosition = 1000;
   self.spinner.color = [UIColor inkPurple];
-  [self.view addSubview:self.spinner];
-  self.spinner.center = self.view.center;
   [self.spinner startAnimating];
+  
+  [AutolayoutHelper configureView:self.view subViews:VarBindings(_spinner) constraints:@[@"X:_spinner.centerX == superview.centerX", @"X:_spinner.centerY == superview.centerY"]];
+  
   [self addDonutChart];
   [[BalanceStoreController sharedBalanceStoreController]refreshData:^(NSArray *results) {
     self.donutValues = results;
@@ -55,7 +56,7 @@ static int KINKDonutChartStrokeLength = 20;
   [self addCircle];
 }
 
--(void)viewWDidAppear:(BOOL)animated {
+-(void)viewDidAppear:(BOOL)animated {
   [[BalanceStoreController sharedBalanceStoreController]refreshData:^(NSArray *results) {
     self.donutValues = results;
     NSLog(@"results = %@", results);

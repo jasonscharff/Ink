@@ -32,6 +32,7 @@
   return original;
 }
 
+
 + (NSString *)shortDateAsStringFromDate: (NSDate *)date {
   static dispatch_once_t once;
   static NSDateFormatter *_sharedInstance;

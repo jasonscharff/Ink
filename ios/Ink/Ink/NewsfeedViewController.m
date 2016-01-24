@@ -10,12 +10,14 @@
 #import "NewsfeedTableViewCell.h"
 #import "NewsfeedStoreController.h"
 #import "UIColor+ColorPalette.h"
+#import "AutolayoutHelper.h"
 
 @interface NewsfeedViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray *objects;
 @property (nonatomic, strong) UIActivityIndicatorView *activityView;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 @end
 
@@ -26,18 +28,23 @@ static NSString *reuseIdentifier = @"com.ink.newsfeed";
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  self.tableView = [[UITableView alloc]initWithFrame:self.view.frame style:UITableViewStylePlain];
+  self.tableView = [[UITableView alloc]init];
   self.tableView.delegate = self;
   self.tableView.dataSource = self;
   self.tableView.allowsSelection = NO;
   self.tableView.rowHeight = UITableViewAutomaticDimension;
   self.tableView.estimatedRowHeight = 50.0;
-  [self.view addSubview:self.tableView];
+  self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
   self.activityView = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
   self.activityView.color = [UIColor inkPurple];
-  self.activityView.center = self.view.center;
-  [self.view addSubview:self.activityView];
+  
+  [AutolayoutHelper configureView:self.view subViews:VarBindings(_tableView, _activityView) constraints:@[@"H:|[_tableView]|", @"V:|[_tableView]|", @"X:_activityView.centerX == superview.centerX", @"X:_activityView.centerY == superview.centerY"]];
+  
   [self.activityView startAnimating];
+  
+  _refreshControl = [[UIRefreshControl alloc]init];
+  [self.tableView addSubview:_refreshControl];
+  [_refreshControl addTarget:self action:@selector(refreshTable:) forControlEvents:UIControlEventValueChanged];
   
   [self.tableView registerClass:[NewsfeedTableViewCell class] forCellReuseIdentifier:reuseIdentifier];
   [[NewsfeedStoreController sharedNewsfeedStoreController]getItemsFromServer:^(NSArray *items) {
@@ -45,6 +52,17 @@ static NSString *reuseIdentifier = @"com.ink.newsfeed";
     [self.tableView reloadData];
     [self.activityView stopAnimating];
     self.activityView.hidden = YES;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+  }];
+}
+
+-(void)refreshTable : (UITableView *)tableView {
+  [[NewsfeedStoreController sharedNewsfeedStoreController]getItemsFromServer:^(NSArray *items) {
+    self.objects = items;
+    [self.tableView reloadData];
+    [self.activityView stopAnimating];
+    self.activityView.hidden = YES;
+    [_refreshControl endRefreshing];
   }];
 }
 

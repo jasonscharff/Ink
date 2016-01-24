@@ -38,8 +38,9 @@
   NSNumber *amountNum = [f numberFromString:amount];
   
   NSDictionary *params = @{@"amount" : amountNum};
+  NSLog(@"amount = %@", amountNum);
   
-  [manager POST:@"http://api.getink.co/user/transfer" parameters:params constructingBodyWithBlock:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+  [manager POST:@"http://api.getink.co/user/transfer" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
       NSLog(@"response object = %@", responseObject);
   } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
       NSLog(@"error = %@", error);

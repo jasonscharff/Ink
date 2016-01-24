@@ -23,6 +23,7 @@ static NSString *identifier = @"com.ink.history";
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray *transactions;
 @property (nonatomic, strong) UIActivityIndicatorView *activityView;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 @end
 
@@ -31,27 +32,44 @@ static NSString *identifier = @"com.ink.history";
 - (void)viewDidLoad {
   [super viewDidLoad];
   self.view.backgroundColor = [UIColor whiteColor];
-  _tableView = [[UITableView alloc]init];
-  [_tableView registerClass:[HistoryTableViewCell class] forCellReuseIdentifier:identifier];
-  _tableView.delegate = self;
-  _tableView.dataSource = self;
-  self.tableView.rowHeight = UITableViewAutomaticDimension;
-  self.tableView.estimatedRowHeight = 80.0;
-  [AutolayoutHelper configureView:self.view subViews:VarBindings (_tableView) constraints:@[@"H:|[_tableView]|", @"V:|[_tableView]|"]];
   
   _activityView = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
   _activityView.color = [UIColor inkPurple];
-  _activityView.center = self.view.center;
-  [self.view addSubview:_activityView];
   [_activityView startAnimating];
+  
+  _tableView = [[UITableView alloc]init];
+  [_tableView registerClass:[HistoryTableViewCell class] forCellReuseIdentifier:identifier];
+  _tableView.delegate = self;
+  _tableView.allowsSelection = NO;
+  _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+  _tableView.dataSource = self;
+  self.tableView.rowHeight = UITableViewAutomaticDimension;
+  self.tableView.estimatedRowHeight = 80.0;
+  [AutolayoutHelper configureView:self.view subViews:VarBindings (_tableView, _activityView) constraints:@[@"H:|[_tableView]|", @"V:|[_tableView]|", @"X:_activityView.centerX == superview.centerX", @"X:_activityView.centerY == superview.centerY"]];
+  
+  _refreshControl = [[UIRefreshControl alloc]init];
+  [self.tableView addSubview:_refreshControl];
+  [_refreshControl addTarget:self action:@selector(refreshTable:) forControlEvents:UIControlEventValueChanged];
+  
   
   [[HistoryStoreController sharedHistoryStoreController]getLastMonthsHistory:^(NSArray *results) {
     _transactions = results;
     [self.tableView reloadData];
     [_activityView stopAnimating];
     _activityView.hidden = YES;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
   }];
   
+}
+
+- (void)refreshTable : (UITableView *)tableView{
+  [[HistoryStoreController sharedHistoryStoreController]queryFromInternet:^(NSArray *results) {
+    _transactions = results;
+    [self.tableView reloadData];
+    [_activityView stopAnimating];
+    _activityView.hidden = YES;
+    [_refreshControl endRefreshing];
+  }];
 }
 
 -(void)viewDidAppear:(BOOL)animated {

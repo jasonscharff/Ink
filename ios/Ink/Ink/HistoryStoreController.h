@@ -12,6 +12,6 @@
 
 + (instancetype)sharedHistoryStoreController;
 - (void)getLastMonthsHistory : (void (^)(NSArray * results))completion;
-
+-(void)queryFromInternet : (void (^)(NSArray * results))completion;
 
 @end

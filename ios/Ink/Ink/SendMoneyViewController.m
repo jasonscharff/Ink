@@ -79,6 +79,10 @@
 }
 
 -(IBAction)sendButtonClicked:(id)sender {
+  [_moneyField resignFirstResponder];
+  if(_moneyField.text.length == 0) {
+    return;
+  }
   [[SendMoneyStoreController sharedSendMoneyStoreController]saveMoney:_moneyField.text];
   _moneyField.text = @"";
   UIAlertController * alert=   [UIAlertController

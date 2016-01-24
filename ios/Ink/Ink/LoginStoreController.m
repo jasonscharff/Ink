@@ -26,7 +26,7 @@
 }
 
 -(BOOL)isLoggedIn {
-  if([FBSDKAccessToken currentAccessToken].tokenString && [JNKeychain loadValueForKey:@"auth_token"]) {
+  if([JNKeychain loadValueForKey:@"auth_token"]) {
     return YES;
   }
   else {
