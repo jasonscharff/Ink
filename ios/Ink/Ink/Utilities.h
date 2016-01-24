@@ -14,5 +14,5 @@
 
 + (NSString *)roundedDollarStringFromNumbers : (CGFloat)number;
 + (NSString *)formatDateFromPlaid : (NSString *)original;
-
++ (NSString *)shortDateAsStringFromDate: (NSDate *)date;
 @end

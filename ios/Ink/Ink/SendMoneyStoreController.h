@@ -11,6 +11,6 @@
 @interface SendMoneyStoreController : NSObject
 
 + (instancetype)sharedSendMoneyStoreController;
--(void)saveMoney : (NSString *)amount;
+- (void)saveMoney : (NSString *)amount;
 
 @end

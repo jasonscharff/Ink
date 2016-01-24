@@ -24,6 +24,7 @@
 @property (nonatomic, strong) NSArray *donutValues;
 @property (nonatomic, strong) UILabel *checkingLabel;
 @property (nonatomic, strong) UILabel *savingsLabel;
+@property (nonatomic, strong) UIActivityIndicatorView *spinner;
 
 @end
 
@@ -35,10 +36,36 @@ static int KINKDonutChartStrokeLength = 20;
 - (void)viewDidLoad {
   [super viewDidLoad];
   self.view.backgroundColor = [UIColor whiteColor];
+  self.spinner = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+  self.spinner.layer.zPosition = 1000;
+  self.spinner.color = [UIColor inkPurple];
+  [self.view addSubview:self.spinner];
+  self.spinner.center = self.view.center;
+  [self.spinner startAnimating];
   [self addDonutChart];
+  [[BalanceStoreController sharedBalanceStoreController]refreshData:^(NSArray *results) {
+    self.donutValues = results;
+    NSLog(@"results = %@", results);
+    [self addTotalLabel];
+    [self addIndividualLabels];
+    [_spinner stopAnimating];
+    _spinner.hidden = YES;
+    [_donutChart reloadData:NO];
+  }];
   [self addCircle];
 }
 
+-(void)viewWDidAppear:(BOOL)animated {
+  [[BalanceStoreController sharedBalanceStoreController]refreshData:^(NSArray *results) {
+    self.donutValues = results;
+    NSLog(@"results = %@", results);
+    [self addTotalLabel];
+    [self addIndividualLabels];
+    [_spinner stopAnimating];
+    _spinner.hidden = YES;
+    [_donutChart reloadData:NO];
+  }];
+}
 
 -(void)addDonutChart {
   _donutChart = [[XYDoughnutChart alloc]init];
@@ -52,13 +79,6 @@ static int KINKDonutChartStrokeLength = 20;
   
   CGFloat width = self.view.frame.size.width - 2*kINKDistanceFromSuperview;
   _donutChart.frame = CGRectMake(kINKDistanceFromSuperview, kINKDistanceFromSuperview, width, width);
-  [[BalanceStoreController sharedBalanceStoreController]refreshData:^(NSArray *results) {
-    self.donutValues = results;
-    NSLog(@"results = %@", results);
-    [self addTotalLabel];
-    [self addIndividualLabels];
-    [_donutChart reloadData:NO];
-  }];
 }
 
 
@@ -80,12 +100,6 @@ static int KINKDonutChartStrokeLength = 20;
   _totalLabel.font = [UIFont fontWithDescriptor:[UIFontDescriptor preferredAvenirNextFontDescriptorWithTextStyle:UIFontTextStyleHeadline]size:0];
   NSString *text = [Utilities roundedDollarStringFromNumbers:((NSNumber *)self.donutValues[0]).floatValue];
   _totalLabel.text = text;
-//  [[BalanceStoreController sharedBalanceStoreController]amountOfMoneyAvailable:^(CGFloat available) {
-//    [[BalanceStoreController sharedBalanceStoreController]amountOfMoneySaved:^(CGFloat saved) {
-//      NSString *text = [Utilities roundedDollarStringFromNumbers:saved+available];
-//      _totalLabel.text = text;
-//    }];
-//  }];
   
 
   _totalLabel.textAlignment = NSTextAlignmentCenter;

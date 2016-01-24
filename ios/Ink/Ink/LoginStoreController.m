@@ -36,7 +36,15 @@
 
 -(void)sendLoginToken:(NSString *)token : (void (^)(BOOL hasPLToken))completion  {
   AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-  NSDictionary *dictionary = @{@"fbToken" : token};
+  NSString *pushToken = [[NSUserDefaults standardUserDefaults]objectForKey:@"push_token"];
+  NSDictionary *dictionary;
+  if(pushToken) {
+    dictionary = @{@"fbToken" : token, @"apns_token" : pushToken};
+  }
+  else {
+    dictionary = @{@"fbToken" : token};
+  }
+  
   [manager POST:@"http://api.getink.co/user/login" parameters:dictionary progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
     NSLog(@"response object = %@", responseObject);
     [JNKeychain saveValue:responseObject[@"auth_token"] forKey:@"auth_token"];

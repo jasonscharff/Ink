@@ -12,6 +12,7 @@
 #import "HistoryViewController.h"
 #import "LoginStoreController.h"
 #import "LoginViewController.h"
+#import "NewsfeedViewController.h"
 #import "SendMoneyViewController.h"
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
@@ -31,6 +32,7 @@
   self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
   self.navigationController = [[UINavigationController alloc]init];
   self.navigationController.navigationBar.translucent = NO;
+  self.navigationController.title = @"Ink";
   if([[LoginStoreController sharedLoginStoreController]isLoggedIn]) {
     [self createTabBarController];
   }
@@ -41,18 +43,40 @@
   [self.window makeKeyAndVisible];
   
   // Override point for customization after application launch.
+  
+  
+  
+  UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound);
+  UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes  categories:nil];
+  [application registerUserNotificationSettings:settings];
+  [application registerForRemoteNotifications];
+  
   return YES;
 }
 
 -(void)createTabBarController {
   UITabBarController *tabBarController = [[UITabBarController alloc]init];
   tabBarController.tabBar.translucent = NO;
+  
+  UIImage *balance = [UIImage imageNamed:@"balance"];
+  UIImage *history = [UIImage imageNamed:@"history"];
+  UIImage *timeline = [UIImage imageNamed:@"timeline"];
+  UIImage *save = [UIImage imageNamed:@"save_money"];
+  
+  UITabBarItem *item1 = [[UITabBarItem alloc]initWithTitle:@"Balance" image:balance selectedImage:balance];
+  UITabBarItem *item2 = [[UITabBarItem alloc]initWithTitle:@"Purchases" image:history selectedImage:history];
+  UITabBarItem *item3 = [[UITabBarItem alloc]initWithTitle:@"Announcements" image:timeline selectedImage:timeline];
+  UITabBarItem *item4 = [[UITabBarItem alloc]initWithTitle:@"Save" image:save selectedImage:save];
+  
   UIViewController *vc1 = [[BalanceViewController alloc]init];
-  UITabBarItem *item1 = [[UITabBarItem alloc]initWithTitle:@"" image:nil selectedImage:nil];
-  UIViewController *vc2 = [[HistoryViewController alloc]init];
-  UIViewController *vc3 = [[SendMoneyViewController alloc]init];
-  tabBarController.viewControllers = @[vc1, vc2, vc3];
   vc1.tabBarItem = item1;
+  UIViewController *vc2 = [[HistoryViewController alloc]init];
+  vc2.tabBarItem = item2;
+  UIViewController *vc3 = [[NewsfeedViewController alloc]init];
+  vc3.tabBarItem = item3;
+  UIViewController *vc4 = [[SendMoneyViewController alloc]init];
+  vc4.tabBarItem = item4;
+  tabBarController.viewControllers = @[vc1, vc2, vc3, vc4];
   [self.navigationController setViewControllers:@[tabBarController]];
 }
 
@@ -89,6 +113,14 @@
                                                              annotation:annotation];
   
   return handled;
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+     NSString *devToken = [[[[deviceToken description] stringByReplacingOccurrencesOfString:@"<"withString:@""]
+                            stringByReplacingOccurrencesOfString:@">" withString:@""]
+                            stringByReplacingOccurrencesOfString: @" " withString: @""];
+  
+    [[NSUserDefaults standardUserDefaults]setObject:devToken forKey:@"push_token"];
 }
 
 @end

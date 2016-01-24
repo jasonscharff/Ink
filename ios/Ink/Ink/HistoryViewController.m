@@ -12,6 +12,7 @@
 #import "HistoryStoreController.h"
 #import "HistoryTableViewCell.h"
 #import "Transaction.h"
+#import "UIColor+ColorPalette.h"
 
 
 static NSString *identifier = @"com.ink.history";
@@ -21,6 +22,7 @@ static NSString *identifier = @"com.ink.history";
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray *transactions;
+@property (nonatomic, strong) UIActivityIndicatorView *activityView;
 
 @end
 
@@ -31,22 +33,32 @@ static NSString *identifier = @"com.ink.history";
   self.view.backgroundColor = [UIColor whiteColor];
   _tableView = [[UITableView alloc]init];
   [_tableView registerClass:[HistoryTableViewCell class] forCellReuseIdentifier:identifier];
-//  UILabel *frontLabel = [UILabel new];
-//  frontLabel.font = [UIFont fontWithName:@"AvenirNext-Regular" size:45];
-//  frontLabel.textAlignment = NSTextAlignmentCenter;
   _tableView.delegate = self;
   _tableView.dataSource = self;
   self.tableView.rowHeight = UITableViewAutomaticDimension;
   self.tableView.estimatedRowHeight = 80.0;
   [AutolayoutHelper configureView:self.view subViews:VarBindings (_tableView) constraints:@[@"H:|[_tableView]|", @"V:|[_tableView]|"]];
   
+  _activityView = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+  _activityView.color = [UIColor inkPurple];
+  _activityView.center = self.view.center;
+  [self.view addSubview:_activityView];
+  [_activityView startAnimating];
+  
+  [[HistoryStoreController sharedHistoryStoreController]getLastMonthsHistory:^(NSArray *results) {
+    _transactions = results;
+    [self.tableView reloadData];
+    [_activityView stopAnimating];
+    _activityView.hidden = YES;
+  }];
+  
+}
+
+-(void)viewDidAppear:(BOOL)animated {
   [[HistoryStoreController sharedHistoryStoreController]getLastMonthsHistory:^(NSArray *results) {
     _transactions = results;
     [self.tableView reloadData];
   }];
-  
-  
-  
 }
 
 - (NSInteger)tableView:(UITableView *)tableView

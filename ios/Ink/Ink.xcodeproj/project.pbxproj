@@ -16,6 +16,9 @@
 		BE7B11641C54562F005EA865 /* BottomBorderTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7B11631C54562F005EA865 /* BottomBorderTextField.m */; };
 		BE7B11681C547ED8005EA865 /* SendMoneyStoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7B11671C547ED8005EA865 /* SendMoneyStoreController.m */; };
 		BE7B116B1C548204005EA865 /* NewsfeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7B116A1C548204005EA865 /* NewsfeedViewController.m */; };
+		BE7B116E1C54836D005EA865 /* NewsfeedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7B116D1C54836D005EA865 /* NewsfeedTableViewCell.m */; };
+		BE7B11711C548733005EA865 /* NewsfeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7B11701C548733005EA865 /* NewsfeedItem.m */; };
+		BE7B11741C548841005EA865 /* NewsfeedStoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7B11731C548841005EA865 /* NewsfeedStoreController.m */; };
 		BED03B591C535AE700388E52 /* AutolayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BED03B561C535AE700388E52 /* AutolayoutHelper.m */; };
 		BED03B5A1C535AE700388E52 /* LinearLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BED03B581C535AE700388E52 /* LinearLayout.m */; };
 		BED03B5E1C536F3F00388E52 /* BalanceStoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = BED03B5D1C536F3F00388E52 /* BalanceStoreController.m */; };
@@ -53,6 +56,12 @@
 		BE7B11671C547ED8005EA865 /* SendMoneyStoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendMoneyStoreController.m; sourceTree = "<group>"; };
 		BE7B11691C548204005EA865 /* NewsfeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsfeedViewController.h; sourceTree = "<group>"; };
 		BE7B116A1C548204005EA865 /* NewsfeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsfeedViewController.m; sourceTree = "<group>"; };
+		BE7B116C1C54836D005EA865 /* NewsfeedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsfeedTableViewCell.h; sourceTree = "<group>"; };
+		BE7B116D1C54836D005EA865 /* NewsfeedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsfeedTableViewCell.m; sourceTree = "<group>"; };
+		BE7B116F1C548733005EA865 /* NewsfeedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsfeedItem.h; sourceTree = "<group>"; };
+		BE7B11701C548733005EA865 /* NewsfeedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsfeedItem.m; sourceTree = "<group>"; };
+		BE7B11721C548841005EA865 /* NewsfeedStoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsfeedStoreController.h; sourceTree = "<group>"; };
+		BE7B11731C548841005EA865 /* NewsfeedStoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsfeedStoreController.m; sourceTree = "<group>"; };
 		BED03B551C535AE700388E52 /* AutolayoutHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutolayoutHelper.h; sourceTree = "<group>"; };
 		BED03B561C535AE700388E52 /* AutolayoutHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutolayoutHelper.m; sourceTree = "<group>"; };
 		BED03B571C535AE700388E52 /* LinearLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinearLayout.h; sourceTree = "<group>"; };
@@ -118,6 +127,8 @@
 		BE4B038E1C53C35A00077459 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				BE7B116F1C548733005EA865 /* NewsfeedItem.h */,
+				BE7B11701C548733005EA865 /* NewsfeedItem.m */,
 				BE4B03931C5412A900077459 /* Transaction.h */,
 				BE4B03941C5412A900077459 /* Transaction.m */,
 				BE4B038B1C53C35700077459 /* Balance.h */,
@@ -129,6 +140,8 @@
 		BE7B11651C545634005EA865 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BE7B116C1C54836D005EA865 /* NewsfeedTableViewCell.h */,
+				BE7B116D1C54836D005EA865 /* NewsfeedTableViewCell.m */,
 				BE4B03901C53F50200077459 /* HistoryTableViewCell.h */,
 				BE4B03911C53F50200077459 /* HistoryTableViewCell.m */,
 				BE7B11621C54562F005EA865 /* BottomBorderTextField.h */,
@@ -229,6 +242,8 @@
 		BEE0BC9E1C5339E1000C8A27 /* StoreController */ = {
 			isa = PBXGroup;
 			children = (
+				BE7B11721C548841005EA865 /* NewsfeedStoreController.h */,
+				BE7B11731C548841005EA865 /* NewsfeedStoreController.m */,
 				BE7B11661C547ED8005EA865 /* SendMoneyStoreController.h */,
 				BE7B11671C547ED8005EA865 /* SendMoneyStoreController.m */,
 				BEE0BC9B1C5339DC000C8A27 /* LoginStoreController.h */,
@@ -276,6 +291,11 @@
 					BEE0BC7B1C5334E3000C8A27 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 3R5J785EXT;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -363,11 +383,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE7B116E1C54836D005EA865 /* NewsfeedTableViewCell.m in Sources */,
 				BEE0BC841C5334E3000C8A27 /* AppDelegate.m in Sources */,
 				BEE0BCA11C534BC3000C8A27 /* BalanceViewController.m in Sources */,
 				BED03B5A1C535AE700388E52 /* LinearLayout.m in Sources */,
 				BEE0BC811C5334E3000C8A27 /* main.m in Sources */,
 				BE7B116B1C548204005EA865 /* NewsfeedViewController.m in Sources */,
+				BE7B11741C548841005EA865 /* NewsfeedStoreController.m in Sources */,
 				BE7B11681C547ED8005EA865 /* SendMoneyStoreController.m in Sources */,
 				BED03B5E1C536F3F00388E52 /* BalanceStoreController.m in Sources */,
 				BE4B03921C53F50200077459 /* HistoryTableViewCell.m in Sources */,
@@ -376,6 +398,7 @@
 				BE4B03981C54282500077459 /* HistoryStoreController.m in Sources */,
 				BE7B11641C54562F005EA865 /* BottomBorderTextField.m in Sources */,
 				BED03B611C537CC800388E52 /* UIFontDescriptor+AvenirNext.m in Sources */,
+				BE7B11711C548733005EA865 /* NewsfeedItem.m in Sources */,
 				BED03B681C53850400388E52 /* Utilities.m in Sources */,
 				BEE0BC981C5335BE000C8A27 /* LoginViewController.m in Sources */,
 				BED03B641C537D2D00388E52 /* UIColor+ColorPalette.m in Sources */,
@@ -491,7 +514,7 @@
 				INFOPLIST_FILE = Ink/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jasonscharff.Ink;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jasonscharff.ink;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -507,7 +530,7 @@
 				INFOPLIST_FILE = Ink/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jasonscharff.Ink;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jasonscharff.ink;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
